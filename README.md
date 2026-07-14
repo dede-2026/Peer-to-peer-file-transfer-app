@@ -8,11 +8,13 @@ Send any file — photos, videos, documents, archives — between any devices on
 
 ## ✨ Features
 
-- 📤 Drag-and-drop **upload** from any device
-- 📥 One-click **download** to any device  
+- 📤 Drag-and-drop **upload** from any device, with **per-file progress & speed**
+- 📥 One-click **download** to any device
+- 📱 **Mobile-first UI** — feels native on phones, roomy on desktops, adapts to light/dark mode
 - 🌐 Works in **any browser** (Chrome, Safari, Firefox, Edge…)
-- 📱 Mobile-friendly — works from phones & tablets
-- 🗂️ Supports **any file type**, any size
+- 🗂️ Supports **any file type** and **any size** — uploads stream to disk, so multi-GB videos won't exhaust memory
+- 🔀 **Concurrent transfers** — several devices can send/receive at once (threaded server)
+- 🧯 **Safe filenames** — collisions auto-rename (`photo (1).jpg`); path components are stripped
 - ⚙️ Zero dependencies — pure Python standard library
 - 🔒 Local-only — traffic never leaves your network
 
@@ -67,8 +69,8 @@ python3 simpleshare.py --port 9000 --dir ~/Desktop/transfers
 ## 📁 How Files Are Stored
 
 Uploaded files land in the `shared_files/` folder (or whatever `--dir` points to).  
-Files are **not deleted automatically** — clean up manually when done.  
-If you upload a file with the same name twice, it is saved as `name_1.ext`, `name_2.ext`, etc.
+Files are **not deleted automatically** — clean up manually, or use the 🗑️ button in the web UI.  
+If you upload a file whose name already exists, it is saved alongside the original as `name (1).ext`, `name (2).ext`, etc. — nothing is overwritten.
 
 ---
 

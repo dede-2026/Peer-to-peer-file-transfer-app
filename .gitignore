@@ -10,3 +10,6 @@ build/
 .DS_Store
 .venv
 node_modules/
+
+# Runtime upload/download folder — user data, not source
+shared_files/

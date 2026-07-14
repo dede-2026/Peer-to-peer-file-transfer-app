@@ -139,13 +139,13 @@ Double-click **`run.bat`**. A terminal window opens and shows the server URL.
 **Option 2 — Command Prompt:**
 ```
 cd path\to\Peer to peer file transfer app
-python Peer to peer file transfer app.py
+python simpleshare.py
 ```
 
 **Option 3 — PowerShell:**
 ```powershell
 cd path\to\Peer to peer file transfer app
-python Peer to peer file transfer app.py
+python simpleshare.py
 ```
 
 The server prints something like:
@@ -170,7 +170,7 @@ chmod +x run.sh              # only needed once
 **Option 2 — Direct Python:**
 ```bash
 cd ~/Downloads/Peer to peer file transfer app
-python3 Peer to peer file transfer app.py
+python3 simpleshare.py
 ```
 
 **Allow firewall prompt:** macOS may ask "Do you want to allow incoming network connections?" → click **Allow**.
@@ -187,28 +187,28 @@ chmod +x run.sh     # once
 
 Or directly:
 ```bash
-python3 Peer to peer file transfer app.py
+python3 simpleshare.py
 ```
 
 **Running in the background (optional):**
 ```bash
-nohup python3 Peer to peer file transfer app.py &
+nohup python3 simpleshare.py &
 echo "PID: $!"
 ```
 
-To stop it: `kill <PID>` or find it with `pkill -f Peer to peer file transfer app.py`.
+To stop it: `kill <PID>` or find it with `pkill -f simpleshare.py`.
 
 **Running as a systemd service (optional, for always-on sharing):**
 
-Create `/etc/systemd/system/Peer to peer file transfer app.service`:
+Create `/etc/systemd/system/simpleshare.service`:
 ```ini
 [Unit]
 Description=Peer to peer file transfer app File Transfer
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/python3 /home/youruser/Peer to peer file transfer app/Peer to peer file transfer app.py --port 8080
-WorkingDirectory=/home/youruser/Peer to peer file transfer app
+ExecStart=/usr/bin/python3 /home/youruser/simpleshare/simpleshare.py --port 8080
+WorkingDirectory=/home/youruser/simpleshare
 Restart=on-failure
 User=youruser
 
@@ -218,8 +218,8 @@ WantedBy=multi-user.target
 
 Then:
 ```bash
-sudo systemctl enable Peer to peer file transfer app
-sudo systemctl start Peer to peer file transfer app
+sudo systemctl enable simpleshare
+sudo systemctl start simpleshare
 ```
 
 ---
@@ -325,7 +325,7 @@ If you're on a phone hotspot, devices connected to the hotspot can reach the ser
 ## Command-Line Options
 
 ```
-python3 Peer to peer file transfer app.py [--port PORT] [--dir DIRECTORY]
+python3 simpleshare.py [--port PORT] [--dir DIRECTORY]
 ```
 
 | Option | Default | Example |
@@ -337,13 +337,13 @@ python3 Peer to peer file transfer app.py [--port PORT] [--dir DIRECTORY]
 
 ```bash
 # Different port
-python3 Peer to peer file transfer app.py --port 9090
+python3 simpleshare.py --port 9090
 
 # Custom folder
-python3 Peer to peer file transfer app.py --dir /mnt/usb/drops
+python3 simpleshare.py --dir /mnt/usb/drops
 
 # Both
-python3 Peer to peer file transfer app.py --port 8888 --dir ~/Documents/transfer
+python3 simpleshare.py --port 8888 --dir ~/Documents/transfer
 ```
 
 ---
@@ -365,7 +365,7 @@ OSError: [Errno 98] Address already in use
 
 Something else is using port 8080. Just pick another:
 ```bash
-python3 Peer to peer file transfer app.py --port 9090
+python3 simpleshare.py --port 9090
 ```
 
 ### Python not found
